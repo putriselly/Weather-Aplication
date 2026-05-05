@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 64px;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(ellipse 140% 55% at 50% -5%, rgba(56, 189, 248, 0.32), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 0% 100%, rgba(99, 102, 241, 0.22), transparent 55%),
+    linear-gradient(180deg, #040e1c 0%, #071628 55%, #050f1e 100%);
+  color: #dff1ff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.cuaca {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.20);
+  border-radius: 22px;
+  padding: 10px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 20px 50px -15px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  margin-bottom: 28px;
+}
+
+#weather {
+  flex: 1;
+  padding: 13px 18px;
+  border: 1.5px solid rgba(56, 189, 248, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #dff1ff;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+#weather::placeholder {
+  color: rgba(148, 198, 233, 0.50);
+}
+
+#weather:focus {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.07);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.14);
+}
+
+.cuaca button {
+  padding: 13px 26px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 80ms ease, filter 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 8px 24px -8px rgba(2, 132, 199, 0.60);
+}
+
+.cuaca button:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.65);
+}
+
+.cuaca button:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+#infocuaca {
+  width: 100%;
+  max-width: 480px;
+}
+
+.kartu {
+  background: linear-gradient(
+    150deg,
+    rgba(2, 132, 199, 0.24) 0%,
+    rgba(79, 70, 229, 0.18) 100%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 32px;
+  padding: 28px 26px 24px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 30px 70px -20px rgba(0, 0, 0, 0.60),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: fadeUp 300ms ease;
+}
+
+.kartu-atas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.kota-nama {
+  font-size: 22px;
+  font-weight: 700;
+  color: #dff1ff;
+  letter-spacing: 0.01em;
+}
+
+.deskripsi {
+  font-size: 15px;
+  font-weight: 500;
+  color: #67c4ea;
+  text-transform: capitalize;
+  margin-top: 4px;
+  letter-spacing: 0.03em;
+}
+
+.cuaca-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 16px rgba(56, 189, 248, 0.55))
+    drop-shadow(0 0 40px rgba(56, 189, 248, 0.25));
+}
+
+.suhu {
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 10px 0 28px;
+  background: linear-gradient(135deg, #ffffff 30%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.suhu span {
+  font-size: 40px;
+  font-weight: 600;
+  vertical-align: super;
+  opacity: 0.75;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.detail-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.13);
+  border-radius: 20px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: background 180ms ease;
+}
+
+.detail-item:hover {
+  background: rgba(56, 189, 248, 0.10);
+}
+
+.detail-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.detail-nilai {
+  font-size: 17px;
+  font-weight: 700;
+  color: #dff1ff;
+  letter-spacing: -0.01em;
+}
+
+.detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #5bafd4;
+}
+
+.loading {
+  text-align: center;
+  color: #67c4ea;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 32px;
+  letter-spacing: 0.04em;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.error {
+  text-align: center;
+  color: #fca5a5;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 28px;
+  background: rgba(239, 68, 68, 0.10);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  border-radius: 20px;
+  animation: fadeUp 280ms ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;    }
+  50%       { opacity: 0.35; }
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 20px; }
+  .cuaca { flex-direction: column; }
+  .cuaca button { width: 100%; }
+  .suhu { font-size: 64px; }
+  .suhu span { font-size: 32px; }
+  .kartu { padding: 22px 18px 20px; }
+  .cuaca-icon { width: 72px; height: 72px; }
+  .kota-nama { font-size: 19px; }
+  .detail-grid { gap: 8px; }
+  .detail-nilai { font-size: 15px; }
+}
